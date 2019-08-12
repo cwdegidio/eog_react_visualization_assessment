@@ -7,7 +7,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import "react-toastify/dist/ReactToastify.css";
 import Header from "./components/Header";
 import Wrapper from "./components/Wrapper";
-import Dashboard from './components/Dashboard';
+import Dashboard from './components/Selector';
 
 const store = createStore();
 const theme = createMuiTheme({

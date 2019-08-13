@@ -86,17 +86,13 @@ const Selector = () => {
     if (!data) return;
 
     const { getMetrics } = data;
-
+    console.log('Initial Dispatch')
     dispatch({ type: actions.INITIAL_METRICS_RECEIVED, getMetrics });
   }, [dispatch, data, error]);
 
   useEffect(() => {
-    if(selectedMetricNames.length === 0) {
-      return;
-    }
-    console.log('THIS IS THE MESSAGE');
     dispatch({ type: actions.SET_SELECTED_METRICS, selectedMetricNames });
-  }, [selectedMetricNames]);
+  }, [dispatch, selectedMetricNames]);
 
   if (fetching) {
     return <div>Loading...</div>;

@@ -4,8 +4,6 @@ const initialState = [];
 
 const setSelectedMetrics = (state, action) => {
   const { selectedMetricNames } = action;
-  // TODO Fix selected logic, clear the array of the final item.
-  // console.log(selectedMetricNames);
   return selectedMetricNames || [];
 };
 

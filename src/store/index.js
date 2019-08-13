@@ -5,12 +5,14 @@ import sagas from './sagas';
 import weatherReducer from './reducers/Weather';
 import initialMetricsReducer from './reducers/InitialMetrics';
 import selectedMetricsReducer from './reducers/SelectedMetrics';
+import initialMetricValues  from './reducers/InitialMetricValues';
 
 export default () => {
   const rootReducer = combineReducers({
     weather: weatherReducer,
     metrics: initialMetricsReducer,
     selectedMetrics: selectedMetricsReducer,
+    metricValues: initialMetricValues,
   });
 
   const composeEnhancers = composeWithDevTools({});

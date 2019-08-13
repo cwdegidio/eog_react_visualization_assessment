@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { Provider, createClient, useQuery } from 'urql';
-import { useDispatch, useSelector } from "react-redux";
-import * as actions from "../store/actions";
+import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -10,8 +9,9 @@ import FormControl from '@material-ui/core/FormControl';
 import ListItemText from '@material-ui/core/ListItemText';
 import Select from '@material-ui/core/Select';
 import Checkbox from '@material-ui/core/Checkbox';
+import * as actions from '../store/actions';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     flexWrap: 'wrap',
@@ -52,9 +52,7 @@ const query = `
   query{ getMetrics }
 `;
 
-const getMetricNames = state => {
-  return state.metrics;
-};
+const getMetricNames = (state) => state.metrics;
 
 export default () => (
   <Provider value={client}>
@@ -86,7 +84,6 @@ const Selector = () => {
     if (!data) return;
 
     const { getMetrics } = data;
-    console.log('Initial Dispatch')
     dispatch({ type: actions.INITIAL_METRICS_RECEIVED, getMetrics });
   }, [dispatch, data, error]);
 
@@ -109,10 +106,10 @@ const Selector = () => {
           value={selectedMetricNames}
           onChange={handleChange}
           input={<Input id="select-multiple-checkbox" />}
-          renderValue={selected => selected.join(', ')}
+          renderValue={(selected) => selected.join(', ')}
           MenuProps={MenuProps}
         >
-          {metrics.map(metric => (
+          {metrics.map((metric) => (
             <MenuItem key={metric} value={metric}>
               <Checkbox checked={selectedMetricNames.indexOf(metric) > -1} />
               <ListItemText primary={metric} />

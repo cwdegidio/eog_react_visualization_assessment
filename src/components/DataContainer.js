@@ -5,9 +5,9 @@ import {
 } from 'urql';
 import { useDispatch, useSelector } from 'react-redux';
 import uuidv4 from 'uuid/v4';
-import * as actions from '../store/actions';
-import DataCard from './DataCard';
 import { makeStyles } from '@material-ui/core/styles';
+import DataCard from './DataCard';
+import * as actions from '../store/actions';
 
 const useStyles = makeStyles({
   dataContainer: {
@@ -59,10 +59,11 @@ const DataContainer = () => {
     variables: {},
   });
 
-  const { fetch, data, error } = subResult;
+  const { data, error } = subResult;
 
   useEffect(() => {
     if (error) {
+      dispatch({ type: actions.API_ERROR, error: error.message });
       return;
     }
 

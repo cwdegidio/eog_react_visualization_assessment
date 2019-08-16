@@ -15,8 +15,21 @@ class Chart extends Component {
     let measurements = {};
     let unit = '';
     let metric = '';
+    const classes = {
+      welcomeContainer: {
+        height: '50vh',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      },
+      welcomeMessage: {
+        fontSize: 36,
+        color: 'white',
+        fontWeight: 'bold',
+      },
+    };
 
-    const metricIndex = this.props.metricValues.metricValues.findIndex((element) => element.metric === this.props.selectedMetrics[0]);;
+    const metricIndex = this.props.metricValues.metricValues.findIndex((element) => element.metric === this.props.selectedMetrics[0]);
 
     if (this.props.metricValues.metricValues[metricIndex]) {
       measurements = this.props.metricValues.metricValues[metricIndex].measurements;
@@ -29,7 +42,7 @@ class Chart extends Component {
     if (metricIndex !== -1) {
       return (
         <div style={{ width: '100%', height: '50vh', marginTop: '150px' }}>
-          <h1 style={{textAlign: 'center'}}>{metric}</h1>
+          <h1 style={{ textAlign: 'center' }}>{metric}</h1>
           <ResponsiveContainer>
             <LineChart width={500} height={400} data={measurements}>
               <Line type="monotone" dataKey="value" stroke={colors[metricIndex]} dot={false} />
@@ -43,7 +56,7 @@ class Chart extends Component {
       );
     }
 
-    return <div>Please select a metric from above...</div>;
+    return <div style={classes.welcomeContainer}><div style={classes.welcomeMessage}>Please select a metric from above...</div></div>;
   }
 }
 

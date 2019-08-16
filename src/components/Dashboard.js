@@ -63,6 +63,7 @@ const Dashboard = () => {
   // This will create an object with the initial metric list and their visibility state
   useEffect(() => {
     if (metrics.error) {
+      dispatch({ type: actions.API_ERROR, error: metrics.error.message });
       return;
     }
 
@@ -88,7 +89,7 @@ const Dashboard = () => {
   const after = before - thirtyMinutes;
 
   return (
-    <div style={{background: 'linear-gradient(5deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%)', height: "100vh"}}>
+    <div style={{ background: 'linear-gradient(5deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%)', height: '100vh' }}>
       {metricsArray.map((metricObj) => {
         const metricName = metricObj.metric;
         return (

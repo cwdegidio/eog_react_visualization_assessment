@@ -7,8 +7,6 @@ import createStore from './store';
 import 'react-toastify/dist/ReactToastify.css';
 import Header from './components/Header';
 import Wrapper from './components/Wrapper';
-import Selector from './components/Selector';
-import MetricCardContainer from './components/MetricCardContainer';
 import Dashboard from './components/Dashboard';
 
 

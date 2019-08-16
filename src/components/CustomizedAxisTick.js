@@ -2,16 +2,18 @@ import React, { Component } from 'react';
 
 class CustomizedAxisTick extends Component {
   render() {
-    const {x, y, stroke, payload} = this.props;
+    const {
+      x, y, stroke, payload,
+    } = this.props;
     const rawDate = new Date(payload.value);
     const hours = rawDate.getHours().toString();
     let minutes = rawDate.getMinutes().toString();
 
     if (minutes.length === 1) {
-      minutes = '0' + minutes;
+      minutes = `0${minutes}`;
     }
 
-    let newValue = `${hours}:${minutes}`;
+    const newValue = `${hours}:${minutes}`;
 
     return (
       <g transform={`translate(${x},${y})`}>

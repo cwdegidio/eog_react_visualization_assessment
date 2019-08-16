@@ -7,9 +7,7 @@ const initialState = {
 
 // Updates the metric in the newState with the derived value
 function updateMetricValueWithSubData(metric, currentState, updatedValue) {
-  const metricIndex = currentState.metricValues.findIndex((element) => {
-    return element.metric === metric;
-  });
+  const metricIndex = currentState.metricValues.findIndex((element) => element.metric === metric);
   if (metricIndex !== -1) {
     currentState.metricValues[metricIndex].measurements.shift();
     currentState.metricValues[metricIndex].measurements.push(updatedValue);
@@ -58,9 +56,6 @@ const subscriptionDataReceived = (state, action) => {
     default:
       break;
   }
-
-
-
 
   return newState;
 };

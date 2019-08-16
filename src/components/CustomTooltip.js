@@ -20,11 +20,11 @@ class CustomTooltip extends Component {
       let seconds = rawDate.getSeconds().toString();
 
       if (minutes.length === 1) {
-        minutes = '0' + minutes;
+        minutes = `0${minutes}`;
       }
 
-      if(seconds.length === 1) {
-        seconds = '0' + seconds;
+      if (seconds.length === 1) {
+        seconds = `0${seconds}`;
       }
 
       const finalDate = `${month} ${date}, ${year}`;
@@ -32,8 +32,8 @@ class CustomTooltip extends Component {
 
       return (
         <div style={{ backgroundColor: 'white', padding: '5px', outline: '1px solid darkgrey' }}>
-          <p style={{fontWeight: 'bold', marginBottom: 0, paddingBottom: 0}}>{`${finalDate}`}</p>
-          <p style={{marginTop: 0, paddingTop: 0}}>{`${finalTime}`}</p>
+          <p style={{ fontWeight: 'bold', marginBottom: 0, paddingBottom: 0 }}>{`${finalDate}`}</p>
+          <p style={{ marginTop: 0, paddingTop: 0 }}>{`${finalTime}`}</p>
           <p className="value">{`${payload[0].payload.value} ${payload[0].payload.unit}`}</p>
         </div>
       );

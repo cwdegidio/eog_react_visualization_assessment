@@ -22,9 +22,9 @@ class CustomTooltip extends Component {
       const finalTime = `${hour}:${minutes}:${seconds} Central`;
 
       return (
-        <div className="custom-tooltip">
-          <p className="title">{`${finalDate}`}</p>
-          <p className="title">{`${finalTime}`}</p>
+        <div style={{ backgroundColor: 'white', padding: '5px', outline: '1px solid darkgrey' }}>
+          <p style={{fontWeight: 'bold', marginBottom: 0, paddingBottom: 0}}>{`${finalDate}`}</p>
+          <p style={{marginTop: 0, paddingTop: 0}}>{`${finalTime}`}</p>
           <p className="value">{`${payload[0].payload.value} ${payload[0].payload.unit}`}</p>
         </div>
       );

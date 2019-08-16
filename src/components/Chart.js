@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import {
-  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip,
+  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
 } from 'recharts';
 import { connect } from 'react-redux';
 import CustomTooltip from './CustomTooltip';
-
+import CustomizedAxisTick from './CustomizedAxisTick';
 
 class Chart extends Component {
   constructor(props) {
@@ -19,11 +19,17 @@ class Chart extends Component {
     }
 
     return (
-      <LineChart width={1200} height={400} data={measurements}>
+      <div style={{ width: '100%', height: '50vh' }}>
+      <ResponsiveContainer>
+      <LineChart width={500} height={400} data={measurements}>
         <Line type="monotone" dataKey="value" stroke="#8884d8" dot={false} />
+        <XAxis dataKey="at" tick={<CustomizedAxisTick />} />
+        <YAxis />
         <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
         <Tooltip content={<CustomTooltip />} />
       </LineChart>
+      </ResponsiveContainer>
+      </div>
     );
   }
 }

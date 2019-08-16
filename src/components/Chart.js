@@ -7,9 +7,6 @@ import CustomTooltip from './CustomTooltip';
 import CustomizedAxisTick from './CustomizedAxisTick';
 
 class Chart extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     let measurements = {};

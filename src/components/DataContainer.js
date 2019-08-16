@@ -69,7 +69,7 @@ const DataContainer = () => {
 
     if (!data) return;
     dispatch({ type: actions.METRIC_VALUE_SUBSCRIPTION_RECEIVED, data });
-  }, [dispatch, data]);
+  }, [dispatch, data, error]);
 
 
   return (

@@ -10,6 +10,7 @@ const initialMetricsReceived = (state, action) => {
       metric,
     };
     newState.push(initializedMetric);
+    return null;
   });
   return newState;
 };

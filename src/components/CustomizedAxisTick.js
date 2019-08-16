@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class CustomizedAxisTick extends Component {
   render() {
     const {
-      x, y, stroke, payload,
+      x, y, payload,
     } = this.props;
     const rawDate = new Date(payload.value);
     const hours = rawDate.getHours().toString();

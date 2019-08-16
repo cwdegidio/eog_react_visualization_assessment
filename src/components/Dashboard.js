@@ -44,6 +44,7 @@ const initialMeasurementsQuery = `
 
 const getMetricsFromState = (state) => state.metrics;
 
+
 export default () => (
   <Provider value={client}>
     <Dashboard />

@@ -8,7 +8,6 @@ const initialMetricsReceived = (state, action) => {
   initMetrics.map((metric) => {
     const initializedMetric = {
       metric,
-      dispay: false,
     };
     newState.push(initializedMetric);
   });

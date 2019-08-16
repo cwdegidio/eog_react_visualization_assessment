@@ -1,10 +1,15 @@
 import * as actions from '../actions';
 
-const initialState = [];
+const initialState = [''];
 
 const setSelectedMetrics = (state, action) => {
-  const { selectedMetricNames } = action;
-  return selectedMetricNames || [];
+  const { metric } = action;
+  const newState = [...state];
+
+  newState.splice(0, 1);
+  newState.push(metric);
+
+  return newState;
 };
 
 const handlers = {

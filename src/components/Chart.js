@@ -15,24 +15,36 @@ class Chart extends Component {
     let measurements = {};
     let unit = '';
 
-    if (this.props.metricValues.metricValues[0]) {
-      measurements = this.props.metricValues.metricValues[0].measurements;
-      unit = measurements[0].unit;
+    console.log(this.props.selectedMetrics);
+
+    const metricIndex = this.props.metricValues.metricValues.findIndex((element) => element.metric === this.props.selectedMetrics[0]);
+
+    console.log(metricIndex);
+
+    if (this.props.metricValues.metricValues[metricIndex]) {
+      measurements = this.props.metricValues.metricValues[metricIndex].measurements;
+      unit = measurements[metricIndex].unit;
     }
 
-    return (
-      <div style={{ width: '100%', height: '50vh' }}>
-        <ResponsiveContainer>
-          <LineChart width={500} height={400} data={measurements}>
-            <Line type="monotone" dataKey="value" stroke="#8884d8" dot={false} />
-            <XAxis dataKey="at" tick={<CustomizedAxisTick />} />
-            <YAxis label={{ value: unit, angle: -90, position: 'insideLeft' }} />
-            <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-            <Tooltip content={<CustomTooltip />} />
-          </LineChart>
-        </ResponsiveContainer>
-      </div>
-    );
+    const colors = ['#b52b52', '#870b00', '#c62c0d', '#c44431', '#750500', '#6f0a00'];
+
+    if (metricIndex !== -1) {
+      return (
+        <div style={{ width: '100%', height: '50vh' }}>
+          <ResponsiveContainer>
+            <LineChart width={500} height={400} data={measurements}>
+              <Line type="monotone" dataKey="value" stroke={colors[metricIndex]} dot={false} />
+              <XAxis dataKey="at" tick={<CustomizedAxisTick />} />
+              <YAxis label={{ value: unit, angle: -90, position: 'insideLeft' }} />
+              <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+              <Tooltip content={<CustomTooltip />} />
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
+      );
+    }
+
+    return <div>Please select a metric from above...</div>;
   }
 }
 

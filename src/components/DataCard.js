@@ -5,13 +5,15 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from 'react-redux';
 import * as actions from '../store/actions';
 
 
 const useStyles = makeStyles({
   card: {
     width: '16.67%',
+    cursor: 'pointer',
+    backgroundColor: '#c8e6e8',
   },
   bullet: {
     display: 'inline-block',
@@ -19,17 +21,21 @@ const useStyles = makeStyles({
     transform: 'scale(0.8)',
   },
   title: {
-    fontSize: 14,
+    fontSize: 16,
+    fontWeight: 'bold',
   },
   pos: {
     marginBottom: 12,
   },
   isSelected: {
-    backgroundColor: 'green',
+    backgroundColor: '#4db7b3',
+  },
+  valueText: {
+    fontWeight: 'bold',
   },
 });
 
-const getCurrentSelection = state => state.selectedMetrics[0];
+const getCurrentSelection = (state) => state.selectedMetrics[0];
 
 const DataCard = ({ metric, value, unit }) => {
   const classes = useStyles();
@@ -49,14 +55,11 @@ const DataCard = ({ metric, value, unit }) => {
           {metric}
         </Typography>
         <Typography variant="h5" component="h2">
-          {value}
+          <span className={classes.valueText}>{value}</span>
           {' '}
           {unit}
         </Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
     </Card>
   );
 };

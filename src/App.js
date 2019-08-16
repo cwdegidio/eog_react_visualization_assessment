@@ -9,7 +9,7 @@ import Header from './components/Header';
 import Wrapper from './components/Wrapper';
 import Selector from './components/Selector';
 import MetricCardContainer from './components/MetricCardContainer';
-import DashboardTest from './components/Dashboard';
+import Dashboard from './components/Dashboard';
 
 
 const store = createStore();
@@ -36,7 +36,7 @@ const App = (props) => (
     <Provider store={store}>
       <Wrapper>
         <Header />
-        <DashboardTest />
+        <Dashboard />
       </Wrapper>
     </Provider>
   </MuiThemeProvider>

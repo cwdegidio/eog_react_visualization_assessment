@@ -13,7 +13,6 @@ const useStyles = makeStyles({
   dataContainer: {
     width: '100%',
     display: 'flex',
-    border: '1px solid red'
   },
 });
 

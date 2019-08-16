@@ -3,9 +3,16 @@ import * as actions from '../actions';
 const initialState = [];
 
 const initialMetricsReceived = (state, action) => {
-  console.log(action);
-  const { getMetrics } = action;
-  return getMetrics;
+  const { initMetrics } = action;
+  const newState = [...state];
+  initMetrics.map((metric) => {
+    const initializedMetric = {
+      metric,
+      dispay: false,
+    };
+    newState.push(initializedMetric);
+  });
+  return newState;
 };
 
 const handlers = {

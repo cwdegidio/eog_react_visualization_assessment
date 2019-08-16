@@ -5,7 +5,7 @@ import sagas from './sagas';
 import weatherReducer from './reducers/Weather';
 import initialMetricsReducer from './reducers/InitialMetrics';
 import selectedMetricsReducer from './reducers/SelectedMetrics';
-import initialMetricValues  from './reducers/InitialMetricValues';
+import initialMetricValues from './reducers/InitialMetricValues';
 
 export default () => {
   const rootReducer = combineReducers({

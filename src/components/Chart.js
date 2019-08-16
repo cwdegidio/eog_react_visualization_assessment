@@ -13,22 +13,24 @@ class Chart extends Component {
 
   render() {
     let measurements = {};
+    let unit = '';
 
     if (this.props.metricValues.metricValues[0]) {
       measurements = this.props.metricValues.metricValues[0].measurements;
+      unit = measurements[0].unit;
     }
 
     return (
       <div style={{ width: '100%', height: '50vh' }}>
-      <ResponsiveContainer>
-      <LineChart width={500} height={400} data={measurements}>
-        <Line type="monotone" dataKey="value" stroke="#8884d8" dot={false} />
-        <XAxis dataKey="at" tick={<CustomizedAxisTick />} />
-        <YAxis />
-        <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-        <Tooltip content={<CustomTooltip />} />
-      </LineChart>
-      </ResponsiveContainer>
+        <ResponsiveContainer>
+          <LineChart width={500} height={400} data={measurements}>
+            <Line type="monotone" dataKey="value" stroke="#8884d8" dot={false} />
+            <XAxis dataKey="at" tick={<CustomizedAxisTick />} />
+            <YAxis label={{ value: unit, angle: -90, position: 'insideLeft' }} />
+            <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+            <Tooltip content={<CustomTooltip />} />
+          </LineChart>
+        </ResponsiveContainer>
       </div>
     );
   }

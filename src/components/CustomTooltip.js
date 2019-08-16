@@ -14,10 +14,19 @@ class CustomTooltip extends Component {
       const rawDate = new Date(label);
       const month = monthNames[rawDate.getMonth()];
       const date = rawDate.getDate();
-      const year = rawDate.getFullYear();
-      const hour = rawDate.getHours();
-      const minutes = rawDate.getMinutes();
-      const seconds = rawDate.getSeconds();
+      const year = rawDate.getFullYear().toString();
+      const hour = rawDate.getHours().toString();
+      let minutes = rawDate.getMinutes().toString();
+      let seconds = rawDate.getSeconds().toString();
+
+      if (minutes.length === 1) {
+        minutes = '0' + minutes;
+      }
+
+      if(seconds.length === 1) {
+        seconds = '0' + seconds;
+      }
+
       const finalDate = `${month} ${date}, ${year}`;
       const finalTime = `${hour}:${minutes}:${seconds} Central`;
 
